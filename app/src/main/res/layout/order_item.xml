@@ -6,6 +6,7 @@
         <variable
             name="orderitem"
             type="com.example.advnative_waroengujang.model.Order" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

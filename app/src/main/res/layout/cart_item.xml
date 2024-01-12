@@ -6,9 +6,13 @@
         <variable
             name="cartitem"
             type="com.example.advnative_waroengujang.model.Cart" />
+
         <variable
-            name="listener"
-            type="com.example.advnative_waroengujang.model.Cart" />
+            name="pluslisterner"
+            type="com.example.advnative_waroengujang.view.ButtonplusClickListener" />
+        <variable
+            name="minlistener"
+            type="com.example.advnative_waroengujang.view.ButtonMinClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +66,9 @@
                     android:layout_width="34dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="@{minlistener::onButtonMinClick}"
                     android:text="-" />
+
 
                 <TextView
                     android:id="@+id/lblQuantityCart"
@@ -77,6 +83,7 @@
                     android:layout_width="34dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="@{pluslisterner.onButtonplusClick()}"
                     android:text="+" />
 
             </LinearLayout>

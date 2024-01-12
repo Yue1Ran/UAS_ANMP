@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_detailMenuFragment_to_listMenuFragment"
             app:destination="@id/listMenuFragment" />
+        <action
+            android:id="@+id/action_detailMenuFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderPopUpFragment"

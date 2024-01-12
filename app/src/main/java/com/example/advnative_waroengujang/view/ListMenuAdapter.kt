@@ -15,10 +15,9 @@ import com.example.advnative_waroengujang.model.Menu
 import com.example.advnative_waroengujang.view.ListMenuFragment.Companion.positionSelected
 import com.squareup.picasso.Picasso
 
-class ListMenuAdapter(val menuList:ArrayList<Menu>) :RecyclerView.Adapter<ListMenuAdapter.MenuViewHolder>() {
-    class MenuViewHolder(val binding: MenuListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
-    }
+class ListMenuAdapter(val menuList:ArrayList<Menu>) :RecyclerView.Adapter<ListMenuAdapter.MenuViewHolder>(),
+    MenuCardListener {
+    class MenuViewHolder(val binding: MenuListItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val binding = MenuListItemBinding.inflate(
@@ -30,6 +29,7 @@ class ListMenuAdapter(val menuList:ArrayList<Menu>) :RecyclerView.Adapter<ListMe
 
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         holder.binding.menulist = menuList[position]
+        holder.binding.menulisterner = this
 
     }
 
@@ -37,5 +37,10 @@ class ListMenuAdapter(val menuList:ArrayList<Menu>) :RecyclerView.Adapter<ListMe
         menuList.clear()
         menuList.addAll(newMenuList)
         notifyDataSetChanged()
+    }
+
+    override fun onMenuCard(v: View) {
+        val action = ListMenuFragmentDirections.actionListMenuFragmentToDetailMenuFragment()
+        Navigation.findNavController(v).navigate(action)
     }
 }
